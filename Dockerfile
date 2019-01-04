@@ -13,7 +13,7 @@ ARG VERSION
 RUN set -ex; \
 	git clone --depth=1 -b v${VERSION} --recursive https://github.com/EOSIO/eos.git /root/eos; \
 	cd /root/eos; \
-	sed -i 's/"${MEM_MEG}" -lt 7000/"${MEM_MEG}" -lt 4000/' scripts/eosio_build_ubuntu.sh; \
+	sed -i 's/"${MEM_MEG}" -lt 7000/"${MEM_MEG}" -lt 1000/' scripts/eosio_build_ubuntu.sh; \
 	yes 1 | ./eosio_build.sh; \
 	./eosio_install.sh; \
 	rm -r /root/eos
