@@ -25,6 +25,8 @@ FROM ubuntu:18.04
 RUN set -ex; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
+		ca-certificates \
+		curl \
 		libssl1.1 \
 	; \
 	rm -rf /var/lib/apt/lists/*
