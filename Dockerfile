@@ -31,7 +31,13 @@ RUN set -ex; \
 
 COPY --from=builder /usr/local/eosio /usr/
 
+RUN set -ex; \
+	mkdir -p /opt/config; \
+	curl -L https://raw.githubusercontent.com/CryptoLions/EOS-MainNet/master/config.ini | sed 's/!!YOUR_ENDPOINT_IP_ADDRESS!!//' > /opt/config/config.ini; \
+	curl -L -o /opt/config/genesis.json https://raw.githubusercontent.com/CryptoLions/EOS-MainNet/master/genesis.json; \
+	true
+
 RUN useradd -m -u 1000 -s /bin/bash runner
 USER runner
 
-ENTRYPOINT ["nodeos"]
+ENTRYPOINT ["nodeos", "--config-dir", "/opt/config"]
