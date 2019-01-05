@@ -16,7 +16,7 @@ This image is being used internally at Coin Metrics. No support is available. Yo
 
 This image builds binaries from sources downloaded from https://github.com/EOSIO/eos.
 
-Image is built on shared Gitlab CI runners provided by Gitlab.com. [CI logs](https://gitlab.com/coinmetrics/fullnodes/eos/pipelines)
+Image is built on Coin Metrics, Inc. infrastructure. [CI logs](https://gitlab.com/coinmetrics/fullnodes/eos/pipelines)
 
 ## License
 
