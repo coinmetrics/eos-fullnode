@@ -1,22 +1,22 @@
 # EOS docker image
 
-[![Docker Repository on Quay](https://quay.io/repository/coinmetrics/fullnode-eos/status "Docker Repository on Quay")](https://quay.io/repository/coinmetrics/fullnode-eos)
+This is unofficial EOS docker image.
+
+It is being used internally at Coin Metrics, and is published in the hope it will be useful, but without any warranty. No support is available. You are using it at your own risk.
 
 ## Using image
+
+[![Docker Repository on Quay](https://quay.io/repository/coinmetrics/fullnode-eos/status "Docker Repository on Quay")](https://quay.io/repository/coinmetrics/fullnode-eos)
 
 ```
 docker pull quay.io/coinmetrics/fullnode-eos:<version>
 ```
 
-## Support
-
-This image is being used internally at Coin Metrics. No support is available. You are using it at your own risk.
-
 ## Security
 
 This image builds binaries from sources downloaded from https://github.com/EOSIO/eos.
 
-Image is built on Coin Metrics, Inc. infrastructure. [CI logs](https://gitlab.com/coinmetrics/fullnodes/eos/pipelines)
+Image is built on Coin Metrics infrastructure. [CI logs](https://gitlab.com/coinmetrics/fullnodes/eos/pipelines)
 
 ## License
 
