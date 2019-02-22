@@ -31,7 +31,7 @@ RUN set -ex; \
 	; \
 	rm -rf /var/lib/apt/lists/*
 
-COPY --from=builder /usr/local/eosio /usr/
+COPY --from=builder /root/opt/eosio /usr/
 
 RUN set -ex; \
 	mkdir -p /opt/config; \
