@@ -27,6 +27,7 @@ RUN set -ex; \
 	apt-get install -y --no-install-recommends \
 		ca-certificates \
 		curl \
+		libicu60 \
 		libssl1.1 \
 	; \
 	rm -rf /var/lib/apt/lists/*
