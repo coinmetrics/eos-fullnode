@@ -15,7 +15,7 @@ RUN set -ex; \
 	cd /root/eos; \
 	sed -i 's/DISK_MIN=20/DISK_MIN=1/' scripts/eosio_build.sh; \
 	sed -i 's/"${MEM_MEG}" -lt 7000/"${MEM_MEG}" -lt 1000/' scripts/eosio_build_ubuntu.sh; \
-	yes 1 | scripts/eosio_build.sh; \
+	yes 1 | scripts/eosio_build.sh -P -f; \
 	scripts/eosio_install.sh; \
 	rm -r /root/eos
 
