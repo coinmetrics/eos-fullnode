@@ -12,9 +12,7 @@ ARG VERSION
 RUN set -ex; \
 	git clone --depth=1 -b v${VERSION} --recursive https://github.com/EOSIO/eos.git /root/eos; \
 	cd /root/eos; \
-	sed -i 's/DISK_MIN=20/DISK_MIN=1/' scripts/eosio_build.sh; \
-	sed -i 's/"${MEM_MEG}" -lt 7000/"${MEM_MEG}" -lt 1000/' scripts/eosio_build_ubuntu.sh; \
-	scripts/eosio_build.sh -P -f -y; \
+	INSTALL_LOCATION=/opt/eosio scripts/eosio_build.sh -P -f -y > /dev/null; \
 	scripts/eosio_install.sh; \
 	rm -r /root/eos
 
@@ -31,7 +29,7 @@ RUN set -ex; \
 	; \
 	rm -rf /var/lib/apt/lists/*
 
-COPY --from=builder /root/opt/eosio /usr/
+COPY --from=builder /opt/eosio /usr/
 
 RUN set -ex; \
 	mkdir -p /opt/config; \
