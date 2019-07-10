@@ -12,7 +12,8 @@ ARG VERSION
 RUN set -ex; \
 	git clone --depth=1 -b v${VERSION} --recursive https://github.com/EOSIO/eos.git /root/eos; \
 	cd /root/eos; \
-	INSTALL_LOCATION=/opt/eosio scripts/eosio_build.sh -P -f -y > /dev/null; \
+	export INSTALL_LOCATION=/opt/eosio; \
+	scripts/eosio_build.sh -P -f -y > /dev/null; \
 	scripts/eosio_install.sh; \
 	rm -r /root/eos
 
