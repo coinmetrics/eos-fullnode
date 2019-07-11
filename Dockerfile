@@ -9,13 +9,13 @@ RUN set -ex; \
 
 ARG VERSION
 
-COPY fuck_eos.patch /root/eos/fuck_eos.patch
+COPY fuck_eos.patch /root/fuck_eos.patch
 
 RUN set -ex; \
 	git clone --depth=1 -b v${VERSION} --recursive https://github.com/EOSIO/eos.git /root/eos; \
 	cd /root/eos; \
 	INSTALL_LOCATION=/opt/eosio scripts/eosio_build.sh -P -f -y > /dev/null; \
-	patch -p1 < fuck_eos.patch; \
+	patch -p1 < /root/fuck_eos.patch; \
 	scripts/eosio_install.sh; \
 	rm -r /root/eos /opt/eosio/opt /opt/eosio/src
 
