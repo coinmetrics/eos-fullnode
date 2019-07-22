@@ -37,7 +37,7 @@ COPY --from=builder /opt/eosio /usr/
 RUN set -ex; \
 	mkdir -p /opt/config; \
 	chown 1000:1000 /opt/config; \
-	curl -L https://raw.githubusercontent.com/CryptoLions/EOS-MainNet/master/config.ini | sed 's/!!YOUR_ENDPOINT_IP_ADDRESS!!//' > /opt/config/config.ini; \
+	curl -L https://raw.githubusercontent.com/CryptoLions/EOS-MainNet/master/config.ini | sed -e 's/!!YOUR_ENDPOINT_IP_ADDRESS!!//' -e 's/plugin = eosio::bnet_plugin//' > /opt/config/config.ini; \
 	curl -L -o /opt/config/genesis.json https://raw.githubusercontent.com/CryptoLions/EOS-MainNet/master/genesis.json; \
 	true
 
