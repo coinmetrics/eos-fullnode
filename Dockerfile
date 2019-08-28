@@ -9,8 +9,6 @@ RUN set -ex; \
 
 ARG VERSION
 
-COPY fuck_eos.patch /root/fuck_eos.patch
-
 RUN set -ex; \
 	git clone --depth=1 -b v${VERSION} --recursive https://github.com/EOSIO/eos.git /root/eos; \
 	cd /root/eos; \
