@@ -40,4 +40,4 @@ COPY config.ini genesis.json /opt/config/
 RUN useradd -m -u 1000 -s /bin/bash runner
 USER runner
 
-ENTRYPOINT ["nodeos", "--config-dir", "/opt/config"]
+ENTRYPOINT ["nodeos", "--config-dir", "/opt/config", "--genesis-json", "/opt/config/genesis.json"]
