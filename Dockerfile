@@ -26,6 +26,7 @@ RUN set -ex; \
 		curl \
 		libicu60 \
 		libssl1.1 \
+        libpq5 \
 	; \
 	rm -rf /var/lib/apt/lists/*
 
