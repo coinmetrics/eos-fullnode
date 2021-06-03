@@ -1,4 +1,4 @@
-FROM ubuntu:18.04 as builder
+FROM ubuntu:20.04 as builder
 
 RUN set -ex; \
 	apt-get update; \
@@ -17,7 +17,7 @@ RUN set -ex; \
 	rm -r /root/eos /opt/eosio/opt /opt/eosio/src
 
 
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 RUN set -ex; \
 	apt-get update; \
