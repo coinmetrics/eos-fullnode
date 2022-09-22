@@ -36,10 +36,7 @@ RUN set -ex; \
 COPY --from=builder /opt/eosio/bin /usr/local/bin/
 
 RUN set -ex; \
-	mkdir -p /opt/config; \
-	chown 1000:1000 /opt/config
-
-COPY config.ini genesis.json /opt/config/
+	chown 1000:1000 /opt
 
 RUN useradd -m -u 1000 -s /bin/bash runner
 USER runner
