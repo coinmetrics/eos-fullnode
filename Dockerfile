@@ -7,6 +7,7 @@ RUN set -ex; \
 	apt-get install -y --no-install-recommends \
 		ca-certificates \ 
 		tzdata \
+		git \
 		zip unzip \
 		libncurses5 wget build-essential \
 		cmake curl \
@@ -18,7 +19,7 @@ RUN set -ex; \
 ARG VERSION
 
 RUN set -ex; \
-	git clone --depth=1 -b v${VERSION} --recursive https://github.com/EOSIO/eos.git /root/eos; \
+	git clone --depth=1 -b v${VERSION} --recursive https://github.com/AntelopeIO/leap.git /root/eos; \
 	cd /root/eos; \
 	scripts/pinned_build.sh /opt/dep /opt/eosio 4 
 
@@ -51,3 +52,4 @@ USER runner
 
 RUN ["nodeos", "--help"]
 ENTRYPOINT ["nodeos"]
+
