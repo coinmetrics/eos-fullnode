@@ -3,7 +3,6 @@
 set -e
 
 export DOCKER_REGISTRY_REPO="${DOCKER_REGISTRY_REPO:-"$(basename "$PWD")"}"
-
 export VERSION=$(cat version.txt)
 echo "Image version ${VERSION}."
 
