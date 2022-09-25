@@ -43,7 +43,7 @@ RUN set -ex; \
 	
 COPY --from=builder /opt/eosio/bin /usr/local/bin/
 COPY pinned_dep_build.sh /opt/dep/pinned_dep_build.sh
-
+COPY pinned_toolchain.cmake /opt/dep/pinned_toolchain.cmake
 RUN useradd -m -u 1000 -s /bin/bash runner
 RUN set -ex; \
 	chown -R 1000:1000 /opt \
