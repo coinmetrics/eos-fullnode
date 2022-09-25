@@ -21,7 +21,7 @@ ARG VERSION
 RUN set -ex; \
 	git clone --depth=1 -b v${VERSION} --recursive https://github.com/AntelopeIO/leap.git /root/eos; \
 	cd /root/eos; \
-	scripts/pinned_build.sh /opt/dep /opt/eosio 4 
+	scripts/pinned_build.sh /opt/dep /opt/eosio 8 
 
 
 FROM ubuntu:18.04
@@ -41,7 +41,6 @@ RUN set -ex; \
 		python3 file \
 	;
 	
-
 COPY --from=builder /opt/eosio/bin /usr/local/bin/
 
 RUN set -ex; \
@@ -49,6 +48,11 @@ RUN set -ex; \
 
 RUN useradd -m -u 1000 -s /bin/bash runner
 USER runner
+
+COPY pinned_dep_build.sh /opt/dep/pinned_dep_build.sh
+WORKDIR /opt/dep 
+RUN set -ex; \
+	./pinned_dep_build.sh /opt/dep 8
 
 RUN ["nodeos", "--help"]
 ENTRYPOINT ["nodeos"]
