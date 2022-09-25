@@ -44,7 +44,7 @@ RUN set -ex; \
 COPY --from=builder /opt/eosio/bin /usr/local/bin/
 COPY pinned_dep_build.sh /opt/dep/pinned_dep_build.sh
 RUN set -ex; \
-	chown 1000:1000 /opt
+	chown -R 1000:1000 /opt
 
 RUN useradd -m -u 1000 -s /bin/bash runner
 USER runner
